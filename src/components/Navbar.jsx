@@ -1,0 +1,26 @@
+import React from 'react'
+import { useState } from 'react';
+import { GiHamburgerMenu } from "react-icons/gi";
+const Navbar = ({filterNews}) => {
+    const [show, setshow] = useState(false)
+  return (
+    <nav>
+        <div className='logo'>
+            <img src="/logo-without-bg.png" alt="logo" />
+        </div>
+        <ul className={show ? "show" : ""}>
+            <li onClick={()=>filterNews("everything")}>ALL</li>
+            <li onClick={()=>filterNews("business")}>BUSSINESS</li>
+            <li onClick={()=>filterNews("entertainment")}>ENTERTAINMENT</li>
+            <li onClick={()=>filterNews("general")}>GENERAL</li>
+            <li onClick={()=>filterNews("health")}>HEALTH</li>
+            <li onClick={()=>filterNews("science")}>SCIENCE</li>
+            <li onClick={()=>filterNews("sports")}>SPORTS</li>
+            <li onClick={()=>filterNews("technology")}>TECHNOLOGY</li>
+        </ul>
+        <GiHamburgerMenu onClick={()=>setshow(!show)}/>
+    </nav>
+  )
+}
+
+export default Navbar
